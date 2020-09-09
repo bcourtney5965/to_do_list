@@ -1,3 +1,15 @@
 language: node_js
 node_js:
   - 12
+
+jobs:
+  include:
+    - stage: "Run Jest tests"
+      script: yarn test
+
+deploy:
+  provider: netlify
+  site: "https://hungry-blackwell-5e4669.netlify.app/"
+  dir: "public/"
+  auth: "encrypted auth stirng"
+  edge: true # opt in to dpl v2
