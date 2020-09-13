@@ -2,14 +2,23 @@ language: node_js
 node_js:
   - 12
 
-jobs:
-  include:
-    - stage: "Run Jest tests"
-      script: yarn test
+script:
+  - yarn
+  - yarn run echo
+  - yarn test
+# jobs:
+#   include:
+#     - stage: sanity
+#       script: yarn
+#     - stage: test
+#       script: yarn test
+#     # https://docs.travis-ci.com/user/build-stages/
+#     - stage: deploy
+#     # deploy with netlify
 
-deploy:
-  provider: netlify
-  site: "https://hungry-blackwell-5e4669.netlify.app/"
-  dir: "public/"
-  auth: "encrypted auth stirng"
-  edge: true # opt in to dpl v2
+# deploy:
+#   provider: netlify
+#   site: "https://hungry-blackwell-5e4669.netlify.app/"
+#   dir: "public/"
+#   auth: "encrypted auth stirng"
+#   edge: true # opt in to dpl v2
